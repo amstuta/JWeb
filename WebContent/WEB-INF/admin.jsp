@@ -5,12 +5,13 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link type="text/css" rel="stylesheet" href="<c:url value='inc/form.css'/>" />
 		<title>Administration interface</title>
 	</head>
 	<body>
-		<p>You are connected as ${ sessionScope.sessionUser.name }</p>
+		<c:import url="/inc/menu.jsp" />
 		
-		<br/>
+		<p>You are connected as ${ sessionScope.sessionUser.name }</p>
 		
 		<c:forEach items="${ sessionScope.messages }" var="message" varStatus="boucle">
         <p>${ boucle.count }. ${ message }</p>

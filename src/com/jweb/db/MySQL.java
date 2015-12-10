@@ -16,12 +16,11 @@ public class MySQL {
 
 	public List<String> getClients() {
 	    try {
-	        messages.add( "Chargement du driver..." );
-	        Class.forName( "com.mysql.jdbc.Driver" );
-	        messages.add( "Driver chargé !" );
+	        Class.forName("com.mysql.jdbc.Driver");
 	    } catch ( ClassNotFoundException e ) {
 	        messages.add( "Erreur lors du chargement : le driver n'a pas été trouvé dans le classpath ! <br/>"
 	                + e.getMessage() );
+	        return messages;
 	    }
 
 	    String url = "jdbc:mysql://localhost:3306/JWeb";
@@ -30,15 +29,13 @@ public class MySQL {
 	    Connection connexion = null;
 	    Statement statement = null;
 	    ResultSet resultat = null;
+	    
+	    messages.clear();
 	    try {
-	        messages.add("Connexion à la base de données...");
 	        connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
-	        messages.add("Connexion réussie !");
 
 	        statement = connexion.createStatement();
-	        messages.add("Objet requête créé !");
 	        resultat = statement.executeQuery("SELECT id, name, firstName, email FROM Clients;");
-	        messages.add("Requête effectuée !");
 	 
 	        while (resultat.next()) {
 	            int idUtilisateur = resultat.getInt("id");
@@ -46,13 +43,14 @@ public class MySQL {
 	            String firstName = resultat.getString("firstName");
 	            String email = resultat.getString("email");
 
-	            messages.add("Données retournées par la requête : id = " + idUtilisateur + ", name = " + name
+	            messages.add("Client: id = " + idUtilisateur + ", name = " + name
 	                    + ", first name = " + firstName + ", email = " + email);
 	        }
-	    } catch (SQLException e) {
+	    } 
+	    catch (SQLException e) {
 	        messages.add("Erreur lors de la connexion : <br/>" + e.getMessage());
-	    } finally {
-	        messages.add("Fermeture de l'objet ResultSet.");
+	    } 
+	    finally {
 	        if (resultat != null) {
 	            try {
 	                resultat.close();
@@ -60,7 +58,6 @@ public class MySQL {
 	            catch (SQLException ignore) {
 	            }
 	        }
-	        messages.add("Fermeture de l'objet Statement.");
 	        if (statement != null) {
 	            try {
 	                statement.close();
@@ -68,7 +65,6 @@ public class MySQL {
 	            catch (SQLException ignore) {
 	            }
 	        }
-	        messages.add( "Fermeture de l'objet Connection." );
 	        if (connexion != null) {
 	            try {
 	                connexion.close();

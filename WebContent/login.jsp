@@ -4,12 +4,12 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Log in administration interface</title>
 		<link type="text/css" rel="stylesheet" href="inc/form.css" />
+		<title>Log in administration interface</title>
 	</head>
 	<body>
 		
-		<%@ include file="../inc/menu.jsp" %>
+		<%@ include file="/inc/menu.jsp" %>
 	
 		<form method="post" action="login">
 			<fieldset>

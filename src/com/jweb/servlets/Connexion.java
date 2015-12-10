@@ -49,15 +49,8 @@ public class Connexion extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 			return;
 		}
-		
-		
 		List<String> msgs = db.getClients();
 		session.setAttribute("messages", msgs);
-		
-		/*
-		request.setAttribute("form", cF);
-		request.setAttribute("user", c);
-		*/
 		
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 		

@@ -16,6 +16,7 @@ public class Deconnexion extends HttpServlet {
 		throws ServletException, IOException
 	{
 		HttpSession session = request.getSession();
+		session.removeAttribute("messages");
 		session.invalidate();
 		
 		response.sendRedirect(URL);
