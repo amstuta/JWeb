@@ -9,6 +9,6 @@
 <title>Home</title>
 </head>
 <body>
-	<c:import url="/inc/menu.jsp" />	
+	<c:import url="inc/menu.jsp" />	
 </body>
 </html>

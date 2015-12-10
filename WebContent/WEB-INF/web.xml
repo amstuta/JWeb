@@ -20,6 +20,10 @@
 		<servlet-name>Restriction</servlet-name>
 		<servlet-class>com.jweb.servlets.Restriction</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Deletion</servlet-name>
+		<servlet-class>com.jweb.servlets.DeleteClient</servlet-class>
+	</servlet>
 	
 	
 	<servlet-mapping>
@@ -37,6 +41,10 @@
 	<servlet-mapping>
 		<servlet-name>Restriction</servlet-name>
 		<url-pattern>/restriction</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Deletion</servlet-name>
+		<url-pattern>/deletion</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

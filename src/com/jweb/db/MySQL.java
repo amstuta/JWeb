@@ -13,7 +13,11 @@ import com.jweb.beans.Client;
 public class MySQL {
 
 	private List<String> messages = new ArrayList<String>();
+	static private final String url = "jdbc:mysql://localhost:3306/JWeb";
+    static private final String utilisateur = "java";
+    static private final String motDePasse = "admin";
 
+    
 	public List<String> getClients() {
 	    try {
 	        Class.forName("com.mysql.jdbc.Driver");
@@ -23,9 +27,6 @@ public class MySQL {
 	        return messages;
 	    }
 
-	    String url = "jdbc:mysql://localhost:3306/JWeb";
-	    String utilisateur = "java";
-	    String motDePasse = "admin";
 	    Connection connexion = null;
 	    Statement statement = null;
 	    ResultSet resultat = null;
@@ -39,12 +40,11 @@ public class MySQL {
 	 
 	        while (resultat.next()) {
 	            int idUtilisateur = resultat.getInt("id");
-	            String name = resultat.getString("name");
-	            String firstName = resultat.getString("firstName");
+	            //String name = resultat.getString("name");
+	            //String firstName = resultat.getString("firstName");
 	            String email = resultat.getString("email");
 
-	            messages.add("Client: id = " + idUtilisateur + ", name = " + name
-	                    + ", first name = " + firstName + ", email = " + email);
+	            messages.add(email);
 	        }
 	    } 
 	    catch (SQLException e) {
@@ -83,10 +83,7 @@ public class MySQL {
 		catch (ClassNotFoundException e) {
 	        return false;
 	    }
-
-	    String url = "jdbc:mysql://localhost:3306/JWeb";
-	    String utilisateur = "java";
-	    String motDePasse = "admin";
+		
 	    Connection connexion = null;
 	    Statement statement = null;
 	    ResultSet resultat = null;
@@ -133,6 +130,49 @@ public class MySQL {
 	        }
 	    }
 		return false;
+	}
+	
+	public void removeClient(String email) {
+		try {
+	        Class.forName("com.mysql.jdbc.Driver");
+	    } catch ( ClassNotFoundException e ) {
+	        return;
+	    }
+
+	    Connection connexion = null;
+	    Statement statement = null;
+	    ResultSet resultat = null;
+	    
+	    try {
+	        connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
+	        statement = connexion.createStatement();
+	        statement.executeQuery("DELETE FROM Clients WHERE email = \"" + email.trim() + "\";");
+	    } 
+	    catch (SQLException e) {
+	    } 
+	    finally {
+	        if (resultat != null) {
+	            try {
+	                resultat.close();
+	            }
+	            catch (SQLException ignore) {
+	            }
+	        }
+	        if (statement != null) {
+	            try {
+	                statement.close();
+	            } 
+	            catch (SQLException ignore) {
+	            }
+	        }
+	        if (connexion != null) {
+	            try {
+	                connexion.close();
+	            } 
+	            catch (SQLException ignore) {
+	            }
+	        }
+	    }
 	}
 }
 

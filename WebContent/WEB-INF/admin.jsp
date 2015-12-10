@@ -14,7 +14,11 @@
 		<p>You are connected as ${ sessionScope.sessionUser.name }</p>
 		
 		<c:forEach items="${ sessionScope.messages }" var="message" varStatus="boucle">
+		<form method="post" action="deletion">
         <p>${ boucle.count }. ${ message }</p>
+        <input type="hidden" name="client" value=${ message }>
+        <p><input type="submit" value="delete" class="sansLabel"/></p>
+        </form>
         </c:forEach>
 	</body>
 </html>
