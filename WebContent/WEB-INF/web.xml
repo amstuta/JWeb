@@ -16,10 +16,6 @@
 		<servlet-name>Restriction</servlet-name>
 		<servlet-class>com.jweb.servlets.Restriction</servlet-class>
 	</servlet>
-	<servlet>
-		<servlet-name>MySQLDb</servlet-name>
-		<servlet-class>com.jweb.servlets.MySQLDb</servlet-class>
-	</servlet>
 	
 	
 	<servlet-mapping>
@@ -37,10 +33,6 @@
 	<servlet-mapping>
 		<servlet-name>Restriction</servlet-name>
 		<url-pattern>/restriction</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>MySQLDb</servlet-name>
-		<url-pattern>/affdb</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
