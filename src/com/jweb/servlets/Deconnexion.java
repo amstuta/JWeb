@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 public class Deconnexion extends HttpServlet {
 
-	public static final String URL = "subscribe";
+	public static final String URL = "restriction";
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 		throws ServletException, IOException

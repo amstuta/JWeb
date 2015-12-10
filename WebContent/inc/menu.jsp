@@ -6,11 +6,14 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 	<body>
+		<fieldset>
+		<legend>Menu</legend>
 		<div id="menu">
-			<!-- <p><a href="/home">Home</a></p> -->
+			<p><a href="/jweb/home.jsp">Home</a></p>
 			<p><a href="/jweb/subscribe">Subscribe to newsletter</a></p>
 			<p><a href="/jweb/restriction">Admin interface</a></p>
 			<p><a href="/jweb/deconnexion">Deconnexion</a></p>
 		</div>
+		</fieldset>
 	</body>
 </html>
