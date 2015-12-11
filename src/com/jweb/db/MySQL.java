@@ -64,6 +64,47 @@ public class MySQL {
 	    }
     }
     
+   
+    public void registerClient(Client c) {
+    	try {
+	        Class.forName("com.mysql.jdbc.Driver");
+	    } 
+	    catch ( ClassNotFoundException e ) {
+	        return;
+	    }
+
+	    Connection connexion = null;
+	    Statement statement = null;
+	    
+	    try {
+	        connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
+	        String query = "INSERT INTO Clients (name, firstName, email) VALUES (\"" + c.getName()
+	        		+ "\", \"" + c.getFirstName() + "\", \"" + c.getEmail() + "\");";
+	        
+	        PreparedStatement preparedStmt = connexion.prepareStatement(query);
+	        preparedStmt.execute();
+	    } 
+	    catch (SQLException e) {
+	    	System.out.println(e.getMessage());
+	    } 
+	    finally {
+	        if (statement != null) {
+	            try {
+	                statement.close();
+	            } 
+	            catch (SQLException ignore) {
+	            }
+	        }
+	        if (connexion != null) {
+	            try {
+	                connexion.close();
+	            } 
+	            catch (SQLException ignore) {
+	            }
+	        }
+	    }
+    }
+    
     
 	public List<String> getClients() {
 	    try {
