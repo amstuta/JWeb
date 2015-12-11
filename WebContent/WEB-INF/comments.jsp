@@ -11,7 +11,8 @@
 	<body>
 		<%@ include file="../inc/menu.jsp" %>
 	
-		<h2>Comments</h2>
+		<fieldset>
+		<legend>Comments</legend>
 		<br/>
 		
 		<c:forEach items="${ comments }" var="comment" varStatus="boucle">
@@ -22,11 +23,24 @@
        	</c:forEach>
        	
        	<p class="${empty error ? 'success' : 'error'}">${ error }</p>
-		
-		<!-- 
-		<form method="post" action="sendReview">
-		
-		</form>
-		 -->
+       	</fieldset>
+		 
+		 <fieldset>
+		 	<legend>Add a comment</legend>
+			<form method="post" action="addReview">
+				<label>Name<span class="requis">*</span></label>
+				<input type="text" name="name" value="" size="20" />
+				<span class="error">${ form.errors['name'] }</span>
+				<br/>
+				
+				<label>Comment<span class="requis">*</span></label>
+				<input type="text" name="comm" value="" size="20" maxlength="512" />
+				<span class="error">${ form.errors['comm'] }</span>
+				<br/>
+				
+				<input type="submit" value="Send" class="sansLabel" />
+			</form>
+			<p class="${empty form.errors ? 'success' : 'error'}">${ form.result }</p>
+		</fieldset>
 	</body>
 </html>

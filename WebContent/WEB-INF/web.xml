@@ -32,6 +32,10 @@
 		<servlet-name>Reviews</servlet-name>
 		<servlet-class>com.jweb.servlets.Reviews</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AddReview</servlet-name>
+		<servlet-class>com.jweb.servlets.AddReview</servlet-class>
+	</servlet>
 	
 	
 	<servlet-mapping>
@@ -61,6 +65,10 @@
 	<servlet-mapping>
 		<servlet-name>Reviews</servlet-name>
 		<url-pattern>/reviews</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddReview</servlet-name>
+		<url-pattern>/addReview</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
