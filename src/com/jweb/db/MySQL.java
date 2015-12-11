@@ -2,12 +2,18 @@ package com.jweb.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import com.jweb.beans.Client;
+import com.jweb.beans.Comment;
 
 
 public class MySQL {
@@ -21,9 +27,10 @@ public class MySQL {
 	public List<String> getClients() {
 	    try {
 	        Class.forName("com.mysql.jdbc.Driver");
-	    } catch ( ClassNotFoundException e ) {
+	    } 
+	    catch ( ClassNotFoundException e ) {
 	        messages.add( "Erreur lors du chargement : le driver n'a pas été trouvé dans le classpath ! <br/>"
-	                + e.getMessage() );
+	                		+ e.getMessage() );
 	        return messages;
 	    }
 
@@ -132,10 +139,15 @@ public class MySQL {
 		return false;
 	}
 	
-	public void removeClient(String email) {
+	public void removeClient(String email, HttpServletRequest request) {
+		
+		HttpSession s = request.getSession();
+		Client tmp = (Client) s.getAttribute("sessionUser");
+		
 		try {
 	        Class.forName("com.mysql.jdbc.Driver");
-	    } catch ( ClassNotFoundException e ) {
+	    }
+		catch (ClassNotFoundException e) {
 	        return;
 	    }
 
@@ -145,8 +157,9 @@ public class MySQL {
 	    
 	    try {
 	        connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
-	        statement = connexion.createStatement();
-	        statement.executeQuery("DELETE FROM Clients WHERE email = \"" + email.trim() + "\";");
+	        String query = "DELETE FROM Clients WHERE email = \"" + email + "\";";
+	        PreparedStatement preparedStmt = connexion.prepareStatement(query);
+	        preparedStmt.execute();
 	    } 
 	    catch (SQLException e) {
 	    } 
@@ -173,6 +186,65 @@ public class MySQL {
 	            }
 	        }
 	    }
+	}
+	
+	public List<Comment> getComments() {
+		try {
+	        Class.forName("com.mysql.jdbc.Driver");
+	    } 
+	    catch ( ClassNotFoundException e ) {
+	        return null;
+	    }
+
+		List<Comment> result = new ArrayList<Comment>();
+	    Connection connexion = null;
+	    Statement statement = null;
+	    ResultSet resultat = null;
+	    
+	    try {
+	        connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
+
+	        statement = connexion.createStatement();
+	        resultat = statement.executeQuery("SELECT name, comment FROM Comments;");
+	 
+	        while (resultat.next()) {
+	        	String name = resultat.getString("name");
+	            String comment = resultat.getString("comment");
+
+	            Comment tmp = new Comment();
+	            tmp.setLogin(name);
+	            tmp.setComment(comment);
+	            
+	            result.add(tmp);
+	        }
+	    } 
+	    catch (SQLException e) {
+	    	return null;
+	    } 
+	    finally {
+	        if (resultat != null) {
+	            try {
+	                resultat.close();
+	            }
+	            catch (SQLException ignore) {
+	            }
+	        }
+	        if (statement != null) {
+	            try {
+	                statement.close();
+	            } 
+	            catch (SQLException ignore) {
+	            }
+	        }
+	        if (connexion != null) {
+	            try {
+	                connexion.close();
+	            } 
+	            catch (SQLException ignore) {
+	            }
+	        }
+	    }
+	    return result;
 	}
 }
 

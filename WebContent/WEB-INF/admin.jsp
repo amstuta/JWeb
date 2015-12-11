@@ -20,5 +20,14 @@
         <p><input type="submit" value="delete" class="sansLabel"/></p>
         </form>
         </c:forEach>
+        
+        <br/>
+        
+		<form method="post" action="newsletter">
+        	<p><input type="text" name="news" value="" /></p>
+        	<p><input type="submit" value="send" class="sansLabel" /></p>
+        	<p>${ returnSend }</p>
+        </form>
+        
 	</body>
 </html>

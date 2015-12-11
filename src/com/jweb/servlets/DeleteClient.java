@@ -20,19 +20,15 @@ public class DeleteClient extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 		throws ServletException, IOException
 	{
-		// Delete
 		HttpSession session = request.getSession();
 		String clientMail = request.getParameter("client");
 		
-		db.removeClient(clientMail);
+		db.removeClient(clientMail, request);
 		List<String> tmp = (List<String>)session.getAttribute("messages");
 		
 		session.removeAttribute("messages");
 		tmp.remove(clientMail);
 		session.setAttribute("messages", tmp);
-		
-		Client c = (Client)session.getAttribute("sessionUser");
-		c.setName(clientMail);
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
 	}

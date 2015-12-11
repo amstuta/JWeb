@@ -24,6 +24,14 @@
 		<servlet-name>Deletion</servlet-name>
 		<servlet-class>com.jweb.servlets.DeleteClient</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Newsletter</servlet-name>
+		<servlet-class>com.jweb.servlets.SendNewsletter</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Reviews</servlet-name>
+		<servlet-class>com.jweb.servlets.Reviews</servlet-class>
+	</servlet>
 	
 	
 	<servlet-mapping>
@@ -45,6 +53,14 @@
 	<servlet-mapping>
 		<servlet-name>Deletion</servlet-name>
 		<url-pattern>/deletion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Newsletter</servlet-name>
+		<url-pattern>/newsletter</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Reviews</servlet-name>
+		<url-pattern>/reviews</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
