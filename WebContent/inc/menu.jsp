@@ -10,6 +10,7 @@
 		<legend>Menu</legend>
 		<div id="menu">
 			<p><a href="/jweb/home.jsp">Home</a></p>
+			<p><a href="/jweb/news">News</a></p>
 			<p><a href="/jweb/reviews">Reviews</a></p>
 			<p><a href="/jweb/subscribe">Subscribe to newsletter</a></p>
 			<p><a href="/jweb/restriction">Admin interface</a></p>

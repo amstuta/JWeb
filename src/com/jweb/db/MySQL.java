@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.jweb.beans.Client;
 import com.jweb.beans.Comment;
+import com.jweb.beans.News;
 
 
 public class MySQL {
@@ -23,6 +24,65 @@ public class MySQL {
     static private final String utilisateur = "java";
     static private final String motDePasse = "admin";
 
+    
+    public List<News> getLastNews() {
+    	try {
+    		Class.forName("com.mysql.jdbc.Driver");
+    	}
+    	catch (ClassNotFoundException e) {
+    		return null;
+    	}
+    	
+    	List<News> result = new ArrayList<News>();
+    	Connection connexion = null;
+	    Statement statement = null;
+	    ResultSet resultat = null;
+    	
+    	try {
+	        connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
+
+	        statement = connexion.createStatement();
+	        resultat = statement.executeQuery("SELECT title, body FROM News ORDER BY date DESC;");
+	 
+	        while (resultat.next()) {
+	        	String title = resultat.getString("title");
+	            String body = resultat.getString("body");
+
+	            News tmp = new News();
+	            tmp.setTitle(title);
+	            tmp.setBody(body);
+	            
+	            result.add(tmp);
+	        }
+	    } 
+	    catch (SQLException e) {
+	    	return null;
+	    } 
+	    finally {
+	        if (resultat != null) {
+	            try {
+	                resultat.close();
+	            }
+	            catch (SQLException ignore) {
+	            }
+	        }
+	        if (statement != null) {
+	            try {
+	                statement.close();
+	            } 
+	            catch (SQLException ignore) {
+	            }
+	        }
+	        if (connexion != null) {
+	            try {
+	                connexion.close();
+	            } 
+	            catch (SQLException ignore) {
+	            }
+	        }
+	    }
+	    return result;
+	}
     
     public void registerComment(Comment c) {
     	try {
@@ -39,6 +99,46 @@ public class MySQL {
 	        connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
 	        String query = "INSERT INTO Comments (name, comment) VALUES (\"" + c.getLogin()
 	        		+ "\", \"" + c.getComment() + "\");";
+	        
+	        PreparedStatement preparedStmt = connexion.prepareStatement(query);
+	        preparedStmt.execute();
+	    } 
+	    catch (SQLException e) {
+	    	System.out.println(e.getMessage());
+	    } 
+	    finally {
+	        if (statement != null) {
+	            try {
+	                statement.close();
+	            } 
+	            catch (SQLException ignore) {
+	            }
+	        }
+	        if (connexion != null) {
+	            try {
+	                connexion.close();
+	            } 
+	            catch (SQLException ignore) {
+	            }
+	        }
+	    }
+    }
+    
+    public void registerNews(News n) {
+    	try {
+	        Class.forName("com.mysql.jdbc.Driver");
+	    } 
+	    catch (ClassNotFoundException e) {
+	        return;
+	    }
+
+	    Connection connexion = null;
+	    Statement statement = null;
+	    
+	    try {
+	        connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
+	        String query = "INSERT INTO News (title, body) VALUES (\"" + n.getTitle()
+	        		+ "\", \"" + n.getBody() + "\");";
 	        
 	        PreparedStatement preparedStmt = connexion.prepareStatement(query);
 	        preparedStmt.execute();

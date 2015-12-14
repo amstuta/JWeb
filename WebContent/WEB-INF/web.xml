@@ -36,6 +36,14 @@
 		<servlet-name>AddReview</servlet-name>
 		<servlet-class>com.jweb.servlets.AddReview</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>News</servlet-name>
+		<servlet-class>com.jweb.servlets.News</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddNews</servlet-name>
+		<servlet-class>com.jweb.servlets.AddNews</servlet-class>
+	</servlet>
 	
 	
 	<servlet-mapping>
@@ -69,6 +77,14 @@
 	<servlet-mapping>
 		<servlet-name>AddReview</servlet-name>
 		<url-pattern>/addReview</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>News</servlet-name>
+		<url-pattern>/news</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddNews</servlet-name>
+		<url-pattern>/addNews</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
