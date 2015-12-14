@@ -18,7 +18,7 @@ public class Subscribe extends HttpServlet {
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 	
-	public void doPost(HttpServletRequest request, HttpServletResponse response) 
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
 		SubscribeForm form = new SubscribeForm();

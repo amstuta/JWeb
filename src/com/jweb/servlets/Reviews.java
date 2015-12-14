@@ -20,7 +20,6 @@ public class Reviews extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
-		//HttpSession session = request.getSession();
 		List<Comment> comments = db.getComments();
 		
 		if (comments != null) {
@@ -32,4 +31,20 @@ public class Reviews extends HttpServlet {
 		
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
+	
+	
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException
+		{
+			List<Comment> comments = db.getComments();
+			
+			if (comments != null) {
+				request.setAttribute("comments", comments);
+			}
+			else {
+				request.setAttribute("error", "Unable to retrieve comments.");
+			}
+			
+			this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		}
 }

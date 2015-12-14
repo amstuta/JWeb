@@ -11,6 +11,7 @@ import com.jweb.forms.CommentForm;
 public class AddReview extends HttpServlet {
 	
 	private static final String VUE = "/reviews";
+	private static final String VIEW = "/WEB-INF/comments.jsp";
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
@@ -25,7 +26,7 @@ public class AddReview extends HttpServlet {
 		cF.check(request);
 		
 		request.setAttribute("form", cF);
-		
-		response.sendRedirect(request.getContextPath() + VUE);
+
+		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 }
