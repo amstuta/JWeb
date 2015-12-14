@@ -2,16 +2,17 @@ package com.jweb.forms;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
 import com.jweb.beans.Client;
+import com.jweb.db.MySQL;
+
 
 public class SubscribeForm {
 
 	private static final String NAME = "name";
 	private static final String FIRSTNAME = "firstName";
 	private static final String EMAIL = "email";
+	private MySQL db = new MySQL();
 	
 	private String result;
 	private Map<String, String> errors = new HashMap<String, String>();
@@ -24,7 +25,7 @@ public class SubscribeForm {
 		return errors;
 	}
 	
-	public Client registerClient(HttpServletRequest request) {
+	public void registerClient(HttpServletRequest request) {
 		
 		String name = getValue(request, NAME);
 		String firstName = getValue(request, FIRSTNAME);
@@ -58,11 +59,12 @@ public class SubscribeForm {
 		
 		if (errors.isEmpty()) {
 			result = "You succesfully subscribed";
+			db.registerClient(c);
 		}
 		else {
 			result = "Failed to subscribe";
 		}
-		return c;
+		request.setAttribute("client", c);
 	}
 	
 	private void validateName(String name) throws Exception {

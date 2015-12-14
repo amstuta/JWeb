@@ -12,7 +12,7 @@ public class Restriction extends HttpServlet {
 	public static final String HOME = "/login.jsp";
 	public static final String ADMIN = "/WEB-INF/admin.jsp";
 	
-	public void doGet(HttpServletRequest request, HttpServletResponse response) 
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
 		HttpSession session = request.getSession();

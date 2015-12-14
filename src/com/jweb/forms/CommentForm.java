@@ -2,14 +2,18 @@ package com.jweb.forms;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import com.jweb.beans.Comment;
+import com.jweb.db.MySQL;
 
 
 public class CommentForm {
 	
 	private static final String NAME = "name";
 	private static final String COMM = "comm";
+	private MySQL db = new MySQL();
 	
 	private String result;
 	private Map<String, String> errors = new HashMap<String, String>();
@@ -26,7 +30,7 @@ public class CommentForm {
 		return errors;
 	}
 	
-	public Comment check(HttpServletRequest request) {
+	public void check(HttpServletRequest request) {
 		String name = getValue(request, NAME);
 		String comm = getValue(request, COMM);
 		
@@ -50,12 +54,11 @@ public class CommentForm {
 		
 		if (errors.isEmpty()) {
 			result = "Comment added succesfully";
+			db.registerComment(c);
 		}
 		else {
 			result = "Failed to add comment";
 		}
-		
-		return c;
 	}
 	
 	private void validateName(String user) throws Exception {

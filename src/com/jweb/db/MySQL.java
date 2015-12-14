@@ -8,10 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import com.jweb.beans.Client;
 import com.jweb.beans.Comment;
 import com.jweb.beans.News;
@@ -225,14 +222,10 @@ public class MySQL {
 	        connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
 
 	        statement = connexion.createStatement();
-	        resultat = statement.executeQuery("SELECT id, name, firstName, email FROM Clients;");
+	        resultat = statement.executeQuery("SELECT email FROM Clients;");
 	 
 	        while (resultat.next()) {
-	            int idUtilisateur = resultat.getInt("id");
-	            //String name = resultat.getString("name");
-	            //String firstName = resultat.getString("firstName");
 	            String email = resultat.getString("email");
-
 	            messages.add(email);
 	        }
 	    } 
@@ -322,10 +315,6 @@ public class MySQL {
 	}
 	
 	public void removeClient(String email, HttpServletRequest request) {
-		
-		HttpSession s = request.getSession();
-		Client tmp = (Client) s.getAttribute("sessionUser");
-		
 		try {
 	        Class.forName("com.mysql.jdbc.Driver");
 	    }

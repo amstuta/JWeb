@@ -2,14 +2,18 @@ package com.jweb.forms;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import com.jweb.beans.News;
+import com.jweb.db.MySQL;
 
 
 public class NewsForm {
 
 	private static final String TITLE = "title";
 	private static final String BODY = "body";
+	private MySQL db = new MySQL();
 	
 	private String result;
 	private Map<String, String> errors = new HashMap<String, String>();
@@ -26,7 +30,7 @@ public class NewsForm {
 		return errors;
 	}
 	
-	public News check(HttpServletRequest request) {
+	public void check(HttpServletRequest request) {
 		String title = getValue(request, TITLE);
 		String body = getValue(request, BODY);
 		
@@ -50,12 +54,11 @@ public class NewsForm {
 		
 		if (errors.isEmpty()) {
 			result = "News added succesfully";
+			db.registerNews(c);
 		}
 		else {
 			result = "Failed to add news";
 		}
-		
-		return c;
 	}
 	
 	private void validateTitle(String user) throws Exception {
