@@ -1,4 +1,7 @@
 CREATE DATABASE IF NOT EXISTS JWeb
+CREATE USER IF NOT EXISTS 'java'@'localhost' IDENTIFIED BY 'admin';
+
+GRANT ALL ON JWeb.* to 'java'@'localhost' IDENTIFIED BY 'admin';
 
 USE JWeb;
 
