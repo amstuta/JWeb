@@ -51,7 +51,7 @@
 			<br />
 			
 		  	
-			<textarea id="body" name="body" value="" rows="25" cols="80"></textarea>
+			<textarea id="body" name="body" rows="25" cols="80"></textarea>
 			<span class="error">${ newsForm.errors['body'] }</span>	
 			<br />
 			

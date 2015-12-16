@@ -4,6 +4,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/inc"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/SQLScript"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Doc"/>
         <property name="context-root" value="jweb"/>
         <property name="java-output-path" value="/jweb/build/classes"/>
     </wb-module>
