@@ -6,12 +6,20 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link type="text/css" rel="stylesheet" href="<c:url value='inc/form.css'/>" />
+		<link type="text/css" rel="stylesheet" href="<c:url value='inc/style.css'/>" />
 		<title>Administration interface</title>
 	</head>
 	<body>
 		<c:import url="/inc/menu.jsp" />
-		
-		<p>You are connected as ${ sessionScope.sessionUser.name }</p>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class="myDiv">
+		<p><h3>You are connected as ${ sessionScope.sessionUser.name }</h3></p>
 		
 		<c:forEach items="${ sessionScope.messages }" var="message" varStatus="boucle">
 		<form method="post" action="deletion">
@@ -24,17 +32,17 @@
         <br/>
         
         <fieldset>
-        	<legend>Send a newsletter</legend>
+        	<legend class="myLeg">Send a newsletter</legend>
 			<form method="post" action="newsletter">
 				<label for="news">Text<span class="requis">*</span></label>
-        		<p><input type="text" name="news" value="" /></p>
+        		<p><textarea name="news" rows="25" cols="80"></textarea></p>
         		<p><input type="submit" value="send" class="sansLabel" /></p>
         		<p>${ returnSend }</p>
         	</form>
         </fieldset>
         
         <fieldset>
-        	<legend>Add a news</legend>
+        	<legend class="myLeg">Add a news</legend>
         	<form method="post" action="addNews">
         	
         	<label for="title">Title<span class="requis">*</span></label>
@@ -42,8 +50,8 @@
 			<span class="error">${ newsForm.errors['title'] }</span>	
 			<br />
 			
-		  	<label for="body">Body<span class="requis">*</span></label>
-			<input type="text" id="body" name="body" value="" size="20"/>
+		  	
+			<textarea id="body" name="body" value="" rows="25" cols="80"></textarea>
 			<span class="error">${ newsForm.errors['body'] }</span>	
 			<br />
 			
@@ -54,5 +62,6 @@
         	
         	</form>
         </fieldset>
+        </div>
 	</body>
 </html>

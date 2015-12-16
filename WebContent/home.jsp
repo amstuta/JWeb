@@ -5,10 +5,23 @@
 <html>
 <head>
 <link type="text/css" rel="stylesheet" href="<c:url value='inc/form.css'/>" />
+<link type="text/css" rel="stylesheet" href="<c:url value='inc/style.css'/>" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Home</title>
 </head>
 <body>
-	<c:import url="inc/menu.jsp" />	
+	<c:import url="inc/menu.jsp" />
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<div class="myDiv">
+	<h1 id="leg">YOU WANT IT? WE GOT IT!</h1>
+	<h2 id="leg">Come and buy all the best of retro at 52 street,New York,NY</h2>
+	<img src="inc/img/consoles.png" style="width: 75%; height: 75%" class="pictures"/>
+	</div>
 </body>
 </html>

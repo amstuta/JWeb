@@ -4,16 +4,25 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link type="text/css" rel="stylesheet" href="inc/style.css" />
 		<title>JWeb</title>
 		<link type="text/css" rel="stylesheet" href="inc/form.css" />
 	</head>
 	<body>
 	
 		<%@ include file="../inc/menu.jsp" %>
-	
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class="myDiv">
 		<form method="post" action="subscribe">
 			<fieldset>
-				<legend>Subscribe</legend>
+				<legend class="myLeg">Subscribe</legend>
 				
 				<label for="name">Last name<span class="requis">*</span></label>
 				<input type="text" id="name" name="name" value="" size="20" maxlength="20" />
@@ -36,5 +45,6 @@
 				
 			</fieldset>
 		</form>
+		</div>
 	</body>
 </html>

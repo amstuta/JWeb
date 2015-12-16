@@ -4,16 +4,24 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link type="text/css" rel="stylesheet" href="inc/style.css" />
 		<link type="text/css" rel="stylesheet" href="inc/form.css" />
 		<title>Log in administration interface</title>
 	</head>
 	<body>
-		
 		<%@ include file="/inc/menu.jsp" %>
-	
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class="myDiv">
 		<form method="post" action="login">
 			<fieldset>
-				<legend>Connection</legend>
+				<legend class="myLeg">Connection</legend>
 				
 				<label for="user">User name<span class="requis">*</span></label>
 				<input type="text" id="user" name="user" value="" size="20" maxlength="20" />
@@ -32,5 +40,6 @@
 				
 			</fieldset>
 		</form>
+		</div>
 	</body>
 </html>

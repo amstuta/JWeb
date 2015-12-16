@@ -6,18 +6,27 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link type="text/css" rel="stylesheet" href="<c:url value='inc/form.css'/>" />
+		<link type="text/css" rel="stylesheet" href="<c:url value='inc/style.css'/>" />
 		<title>Reviews</title>
 	</head>
 	<body>
 		<%@ include file="../inc/menu.jsp" %>
-	
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class="myDiv">
 		<fieldset>
-		<legend>Comments</legend>
+		<legend class="myLeg">Comments</legend>
 		<br/>
 		
 		<c:forEach items="${ comments }" var="comment" varStatus="boucle">
 			<fieldset>
-				<legend>${ comment.login }</legend>
+				<legend id="leg">${ comment.login }</legend>
        			<p>${ comment.comment }</p>
        		</fieldset>
        	</c:forEach>
@@ -26,7 +35,7 @@
        	</fieldset>
 		 
 		 <fieldset>
-		 	<legend>Add a comment</legend>
+		 	<legend class="myLeg">Add a comment</legend>
 			<form method="post" action="addReview">
 				<label>Name<span class="requis">*</span></label>
 				<input type="text" name="name" value="" size="20" />
@@ -34,7 +43,7 @@
 				<br/>
 				
 				<label>Comment<span class="requis">*</span></label>
-				<input type="text" name="comm" value="" size="20" maxlength="512" />
+				<textarea name="comm" rows="10" cols="30"></textarea>
 				<span class="error">${ form.errors['comm'] }</span>
 				<br/>
 				
@@ -42,5 +51,6 @@
 			</form>
 			<p class="${empty form.errors ? 'success' : 'error'}">${ form.result }</p>
 		</fieldset>
+		</div>
 	</body>
 </html>

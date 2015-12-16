@@ -6,19 +6,29 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link type="text/css" rel="stylesheet" href="<c:url value='inc/form.css'/>" />
+		<link type="text/css" rel="stylesheet" href="<c:url value='inc/style.css'/>" />
 		<title>News</title>
 	</head>
 	<body>
 		<c:import url="/inc/menu.jsp" />
-		
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class="myDiv">
 		<fieldset>
-			<legend>News</legend>
+			<legend class="myLeg">News</legend>
 			<c:forEach items="${ news }" var="info">
 				<fieldset>
-					<legend>${ info.title }</legend>
+					<legend id="leg">${ info.title }</legend>
 					<p>${ info.body }</p>
 				</fieldset>
 			</c:forEach>
 		</fieldset>
+		</div>
 	</body>
 </html>
