@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="com.jweb.servlets.Connexion" project="jweb" 
     file="/jweb/src/com/jweb/servlets/Connexion.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="150" y="394"/>    
+    <position height="-1" width="-1" x="-39" y="346"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="com.jweb.forms.ConnexionForm" project="jweb" 
     file="/jweb/src/com/jweb/forms/ConnexionForm.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="152" y="109"/>    
+    <position height="-1" width="-1" x="-38" y="89"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="com.jweb.mail.SendMail" project="jweb" 
     file="/jweb/src/com/jweb/mail/SendMail.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="895" y="-387"/>    
+    <position height="-1" width="-1" x="829" y="-487"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="com.jweb.servlets.Subscribe" project="jweb" 
     file="/jweb/src/com/jweb/servlets/Subscribe.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="457" y="384"/>    
+    <position height="-1" width="-1" x="268" y="336"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="com.jweb.forms.SubscribeForm" project="jweb" 
     file="/jweb/src/com/jweb/forms/SubscribeForm.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="454" y="109"/>    
+    <position height="-1" width="-1" x="264" y="89"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="com.jweb.forms.NewsForm" project="jweb" 
     file="/jweb/src/com/jweb/forms/NewsForm.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="747" y="104"/>    
+    <position height="-1" width="-1" x="557" y="84"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="com.jweb.forms.CommentForm" project="jweb" 
     file="/jweb/src/com/jweb/forms/CommentForm.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1121" y="97"/>    
+    <position height="-1" width="-1" x="865" y="79"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="com.jweb.servlets.AddNews" project="jweb" 
     file="/jweb/src/com/jweb/servlets/AddNews.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="754" y="385"/>    
+    <position height="-1" width="-1" x="565" y="337"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="com.jweb.servlets.AddReview" project="jweb" 
     file="/jweb/src/com/jweb/servlets/AddReview.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1120" y="394"/>    
+    <position height="-1" width="-1" x="863" y="346"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -138,7 +138,7 @@
   </class>  
   <class id="16" language="java" name="com.jweb.servlets.SendNewsletter" project="jweb" 
     file="/jweb/src/com/jweb/servlets/SendNewsletter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1053" y="-223"/>    
+    <position height="-1" width="-1" x="835" y="-325"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
